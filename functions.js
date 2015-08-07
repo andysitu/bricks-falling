@@ -9,17 +9,15 @@ function makeTable(rows, cols) {
 
 	for (var i = 0; i < rows; i++) {
 		tbody.insertRow(i);
-		world.map[i] = new Array();
+		map[i] = new Array();
 
 		for (var j = 0; j <	 cols; j++) {
-			world.map[i][j] = 0;
+			map[i][j] = 0;
 
 			tbody.rows[i].insertCell(j);
 			tbody.rows[i].cells[j].id = i + "_" + j;
 		}
 	}
-
-	world.totalCells = i * j;
 
 	document.body.appendChild(table);
 	table = null;
