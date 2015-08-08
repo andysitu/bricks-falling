@@ -50,6 +50,16 @@ var controller = {
 		}
 
 	},
+
+	reachEnd(y, x) { // if the brick has reached the bottom or another brick
+		var cellBelow = map[y+1][x];
+		if (cellBelow ===  2 || this.reachBottom(y) ) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
 	reachBottom(y) {
 		if (y === map.length - 1) {
 			return true;
