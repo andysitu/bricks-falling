@@ -23,3 +23,11 @@ function makeTable(rows, cols) {
 	table = null;
 	tbody = null;
 }
+
+function deleteFromArray(arr, index, amount) {
+	if (!(typeof amount === "number")) {
+		amount = 1;
+	}
+
+	arr.splice(index, amount);
+}
