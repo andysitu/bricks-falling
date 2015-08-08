@@ -1,7 +1,8 @@
 var map = [];
 
 var controller = {
-	timerID: 0,
+	timerID: 0, // ID of the interval funct being run. Cancel when game ends.
+	brickLoc: [],
 	clicked(y, x) {
 		this.makeBrick(y, x);
 	},
@@ -11,6 +12,7 @@ var controller = {
 
 		map[0][x] = 1;
 		ele.className = "brick";
+		this.brickLoc.unshift([0, x]);
 	},
 
 	getCell(y, x) {
