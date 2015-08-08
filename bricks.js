@@ -15,6 +15,24 @@ var controller = {
 		this.brickLoc.unshift([0, x]);
 	},
 
+	changeFallingBrick(y, x, value) { 
+	  // Changes values only in Map of bricks that'll fall one space down
+	  // returns an array of the new coordinates (for replacing old ones in brickLoc);
+	  
+		var y1 = y + 1;
+
+		var oldValue = map[y1][x];
+
+		if (value === undefined) {
+			map[y1][x] = 1;
+		} else {
+			map[y1][x] = value;
+		}
+
+		map[y][x] = oldValue;
+
+		return [y1, x];
+	},
 	getCell(y, x) {
 		return document.getElementById(y + "_" + x);
 	}
