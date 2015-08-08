@@ -40,6 +40,17 @@ var controller = {
 
 		return [y1, x];
 	},
+
+	brickIterator() {
+		var loc = this.brickLoc;
+		for ( var i = 0; i < loc.length; i++) {
+			var oldLoc = loc[i];
+			console.log(oldLoc);
+
+		}
+
+	},
+
 	getCell(y, x) {
 		return document.getElementById(y + "_" + x);
 	}
