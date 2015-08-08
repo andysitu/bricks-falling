@@ -51,7 +51,6 @@ var controller = {
 
 			if (this.reachEnd(y, x)) {
 				map[y][x] = 2;
-				console.log("Reached end");
 				deleteFromArray(loc, i, 1);
 			} else {
 				loc[i] = this.changeFallingBrick(y, x, 1);
@@ -62,8 +61,7 @@ var controller = {
 	},
 
 	reachEnd(y, x) { // if the brick has reached the bottom or another brick
-		var cellBelow = map[y+1][x];
-		if (cellBelow ===  2 || this.reachBottom(y) ) {
+		if (this.reachBottom(y) || map[y+1][x] === 2) {
 			return true;
 		} else {
 			return false;
