@@ -16,7 +16,7 @@ var controller = {
 	},
 
 	changeFallingBrick(y, x, value) { 
-	  // Changes values in Map and class of bricks that'll fall one space down
+	  // Changes values in Map and class of bricks that'll fall one space down (i.e. bricks still falling = 1)
 	  // returns an array of the new coordinates (for replacing old ones in brickLoc);
 
 		var y1 = y + 1;
@@ -44,15 +44,17 @@ var controller = {
 	brickIterator() {
 		var loc = null, y = null, x = null;
 		for ( var i = 0; i < this.brickLoc.length; i++) {
-			loc = this.brickLoc[i];
-			y = loc[0];
-			x = loc[1];
+			loc = this.brickLoc;
+			y = loc[i][0];
+			x = loc[i][1];
 
 
 			if (this.reachEnd(y, x)) {
 				map[y][x] = 2;
+				console.log("Reached end");
+				deleteFromArray(loc, i, 1);
 			} else {
-				this.changeFallingBrick(y, x, 1);
+				loc[i] = this.changeFallingBrick(y, x, 1);
 			}
 
 		}
