@@ -42,10 +42,18 @@ var controller = {
 	},
 
 	brickIterator() {
-		var loc = this.brickLoc;
-		for ( var i = 0; i < loc.length; i++) {
-			var oldLoc = loc[i];
-			console.log(oldLoc);
+		var loc = null, y = null, x = null;
+		for ( var i = 0; i < this.brickLoc.length; i++) {
+			loc = this.brickLoc[i];
+			y = loc[0];
+			x = loc[1];
+
+
+			if (this.reachEnd(y, x)) {
+				map[y][x] = 2;
+			} else {
+				this.changeFallingBrick(y, x, 1);
+			}
 
 		}
 
