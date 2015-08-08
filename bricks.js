@@ -1,6 +1,7 @@
 var map = [];
 
 var controller = {
+	timerID: 0,
 	clicked(y, x) {
 		this.makeBrick(y, x);
 	},
@@ -36,6 +37,13 @@ function init() {
 	}
 
 	table.addEventListener("click", clicky, false)
+
+	function timerFunc() {
+		console.log("HI");
+	}
+
+	controller.timerID = setInterval(timerFunc, 1000)
+
 }
 
 window.onload = init;
