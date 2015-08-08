@@ -2,7 +2,18 @@ var map = [];
 
 var controller = {
 	clicked(y, x) {
-		console.log(y, x);
+		this.makeBrick(y, x);
+	},
+
+	makeBrick(y, x) {
+		var ele = this.getCell(0, x);
+
+		map[0][x] = 1;
+		ele.className = "brick";
+	},
+
+	getCell(y, x) {
+		return document.getElementById(y + "_" + x);
 	}
 };
 
