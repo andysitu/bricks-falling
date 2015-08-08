@@ -26,22 +26,26 @@ var controller = {
 
 		var oldValue = map[y1][x];
 
-		var topCell = this.getCell(y, x);
-		var botCell = this.getCell(y1, x);
+		if (oldValue === 0) {
+			var topCell = this.getCell(y, x);
+			var botCell = this.getCell(y1, x);
 
-		oldClass = botCell.className;
+			oldClass = botCell.className;
 
-		if (value === undefined) {
-			map[y1][x] = 1;
+			if (value === undefined) {
+				map[y1][x] = 1;
+			} else {
+				map[y1][x] = value;
+			}
+
+			map[y][x] = oldValue;
+			botCell.className = topCell.className;
+			topCell.className = oldClass;
+
+			return [y1, x];
 		} else {
-			map[y1][x] = value;
+			throw new Error("changeFallingBrick: error")
 		}
-
-		map[y][x] = oldValue;
-		botCell.className = topCell.className;
-		topCell.className = oldClass;
-
-		return [y1, x];
 	},
 
 	brickIterator() {
@@ -110,7 +114,7 @@ function init() {
 		controller.brickIterator()
 	}
 
-	controller.timerID = setInterval(timerFunc, 750)
+	controller.timerID = setInterval(timerFunc, 50)
 
 }
 
