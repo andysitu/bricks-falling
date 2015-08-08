@@ -50,6 +50,13 @@ var controller = {
 		}
 
 	},
+	reachBottom(y) {
+		if (y === map.length - 1) {
+			return true;
+		} else {
+			return false;
+		}
+	},
 
 	getCell(y, x) {
 		return document.getElementById(y + "_" + x);
