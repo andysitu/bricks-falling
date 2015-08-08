@@ -8,11 +8,14 @@ var controller = {
 	},
 
 	makeBrick(y, x) {
-		var ele = this.getCell(0, x);
+		if (map[0][x] === 0) {
+			var ele = this.getCell(0, x);
 
-		map[0][x] = 1;
-		ele.className = "brick";
-		this.brickLoc.unshift([0, x]);
+			map[0][x] = 1;
+			ele.className = "brick";
+			this.brickLoc.push([0, x]);
+		}
+		
 	},
 
 	changeFallingBrick(y, x, value) { 
