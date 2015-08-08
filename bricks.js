@@ -102,10 +102,10 @@ function init() {
 	table.addEventListener("click", clicky, false)
 
 	function timerFunc() {
-		console.log("HI");
+		controller.brickIterator()
 	}
 
-	controller.timerID = setInterval(timerFunc, 1000)
+	controller.timerID = setInterval(timerFunc, 750)
 
 }
 
