@@ -61,7 +61,9 @@ var controller = {
 	},
 
 	reachEnd(y, x) { // if the brick has reached the bottom or another brick
-		if (this.reachBottom(y) || map[y+1][x] === 2) {
+		if (this.reachBottom(y)) { // reached bottom
+			return true;
+		} else if (map[y+1][x] === 2) { // brick below it has reached bottom or is on top of another brick reached bottom, etc
 			return true;
 		} else {
 			return false;
