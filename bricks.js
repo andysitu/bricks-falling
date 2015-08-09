@@ -62,7 +62,7 @@ var controller = {
 
 			return [y1, x];
 		} else {
-			throw new Error("changeFallingBrick: error")
+			throw new Error("changeFallingBrick: error: " + y + " " + x + " " + value);
 		}
 	},
 
