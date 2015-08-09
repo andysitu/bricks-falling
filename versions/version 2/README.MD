@@ -1,0 +1,1 @@
+Either the same amount of resources taken or possibly a little bit more (based on watching task manager).
