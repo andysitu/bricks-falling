@@ -20,6 +20,9 @@ var controller = {
 	brickLoc: [],
 	clicked(y, x) {
 		this.makeBrick(y, x);
+		if (this.timerStatus === false) {
+			this.startTimer();
+		}
 	},
 
 	makeBrick(y, x) {
