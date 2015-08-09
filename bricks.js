@@ -10,10 +10,12 @@ var controller = {
 			controller.brickIterator()
 		}
 		this.timerID = setInterval(timerFunc , 50);
+		this.timerStatus = true;
 	},
 
 	stopTimer() {
 		clearInterval(this.timerID);
+		this.timerStatus = false;
 	},
 	brickLoc: [],
 	clicked(y, x) {
