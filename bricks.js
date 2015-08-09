@@ -2,6 +2,7 @@ var map = [];
 
 var controller = {
 	timerID: 0, // ID of the interval funct being run. Cancel when game ends.
+	timerStatus: false,
 	startTimer() {
 		// setInterval works in the global context, so a function wrapping the actual function is needed in order to
 		// correctly call on the method and to have this set appropriately.
@@ -125,6 +126,7 @@ function init() {
 	}
 
 	table.addEventListener("click", clicky, false);
+	controller.timerStatus = true;
 
 	function timerFunc() {
 		controller.brickIterator()
