@@ -62,19 +62,23 @@ var controller = {
 
 	brickIterator() {
 		var loc = null, y = null, x = null;
-		for ( var i = 0; i < this.brickLoc.length; i++) {
-			loc = this.brickLoc;
-			y = loc[i][0];
-			x = loc[i][1];
+		if (this.brickLoc.length <= 0) {
+			this.stopTimer();
+		} else {
+			for ( var i = 0; i < this.brickLoc.length; i++) {
+				loc = this.brickLoc;
+				y = loc[i][0];
+				x = loc[i][1];
 
 
-			if (this.reachEnd(y, x)) {
-				map[y][x] = 2;
-				deleteFromArray(loc, i, 1);
-			} else {
-				loc[i] = this.changeFallingBrick(y, x, 1);
+				if (this.reachEnd(y, x)) {
+					map[y][x] = 2;
+					deleteFromArray(loc, i, 1);
+				} else {
+					loc[i] = this.changeFallingBrick(y, x, 1);
+				}
+
 			}
-
 		}
 
 	},
