@@ -131,13 +131,6 @@ function init() {
 	}
 
 	table.addEventListener("click", clicky, false);
-	controller.timerStatus = true;
-
-	function timerFunc() {
-		controller.brickIterator()
-	}
-
-	controller.timerID = setInterval(timerFunc, 50);
 
 }
 
