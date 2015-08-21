@@ -1,0 +1,1 @@
+Runs for loop thru all bricks that are falling and then has them all fall 1 space down. Also searches if the bricks have reached the bottom (floor or other bricks that have reached the bottom). This is run every 50 milliseconds by the timer (setInterval). 

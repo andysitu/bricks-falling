@@ -30,7 +30,7 @@ var controller = {
 			var ele = this.getCell(0, x);
 
 			map[0][x] = 1;
-			ele.className = "brick";
+			ele.style.backgroundColor = "red";
 			this.brickLoc.push([0, x]);
 		}
 		
@@ -48,7 +48,7 @@ var controller = {
 			var topCell = this.getCell(y, x);
 			var botCell = this.getCell(y1, x);
 
-			oldClass = botCell.className;
+			oldColor = botCell.style.backgroundColor;
 
 			if (value === undefined) {
 				map[y1][x] = 1;
@@ -57,8 +57,8 @@ var controller = {
 			}
 
 			map[y][x] = oldValue;
-			botCell.className = topCell.className;
-			topCell.className = oldClass;
+			botCell.style.backgroundColor = topCell.style.backgroundColor;
+			topCell.style.backgroundColor = oldColor;
 
 			return [y1, x];
 		} else {
